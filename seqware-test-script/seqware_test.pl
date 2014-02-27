@@ -11,8 +11,8 @@ print Dumper($d);
 check_dirs();
 
 # check the web services
-check_webservice($d->{'SW_REST_URL'});
-check_webservice($d->{'SW_ADMIN_REST_URL'});
+check_webservice($d->{'SW_REST_URL'}, $d->{'SW_REST_USER'}, $d->{'SW_REST_PASS'});
+check_webservice($d->{'SW_ADMIN_REST_URL'}, $d->{'SW_REST_USER'}, $d->{'SW_REST_PASS'});
 
 # check direct db if not using the web service
 
@@ -61,8 +61,20 @@ print Dumper($r);
 # sub
 
 sub check_webservice {
-  my ($url) = @_;
+  my ($url, $u, $p) = @_;
+  my $result = `wget $url 2>&1`;
+  print "$result\n";
+  if ($result =~ /Connection refused/) {
+    $r->{"Can't connect to web service at URL: $url"} = 1;
+  } elsif ($result =~ /connected/) {
+    $result = `wget --user=$u --password=$p $url 2&>1`;
+    print "WGET: wget --user=$u --password=$p $url 2&>1";
+    print "$result\n";
+    if (0) {
+
   # LEFT OFF HERE  
+    }    
+  }
 }
 
 sub check_dirs {
