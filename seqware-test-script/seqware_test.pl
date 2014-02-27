@@ -19,10 +19,40 @@ check_webservice($d->{'SW_ADMIN_REST_URL'});
 # check mapreduce is running
 
 # check hdfs is running
+# hdfs space
+# does this user have a working dir
 
 # check oozie is running
 
 # check SGE is running
+# daemon
+# listens to port
+# oozie sge installed
+# qaccnt
+# qstat
+# qsub, can you do a echo hostname | qsub and have that work?
+
+# hbase
+# online?
+# reachable?
+
+# disk space
+
+# memory?
+
+# hostname 
+
+# java and version
+# in path
+
+# seqware script? Is it in path?
+
+# network
+# reach 8.8.8.8?
+# reach apt-get repos?
+# maven repos?
+
+
 
 # dump results
 print Dumper($r);
