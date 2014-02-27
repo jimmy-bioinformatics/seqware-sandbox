@@ -14,6 +14,16 @@ check_dirs();
 check_webservice($d->{'SW_REST_URL'});
 check_webservice($d->{'SW_ADMIN_REST_URL'});
 
+# check direct db if not using the web service
+
+# check mapreduce is running
+
+# check hdfs is running
+
+# check oozie is running
+
+# check SGE is running
+
 # dump results
 print Dumper($r);
 
@@ -22,7 +32,7 @@ print Dumper($r);
 
 sub check_webservice {
   my ($url) = @_;
-  
+  # LEFT OFF HERE  
 }
 
 sub check_dirs {
